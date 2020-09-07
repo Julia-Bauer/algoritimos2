@@ -57,11 +57,6 @@ class Lista:
             else:
                 raise IndexError("Index fora do intervalo da Lista")
         return ponteiro
-        
-
-    def set(self, index, Novoelemento):
-        #não precisa pois tem o __getitem__
-        pass
 
     def __getitem__(self, index):
         #ponteiro = self.inicio
@@ -157,39 +152,50 @@ class Lista:
         #aumenta o tamanho da lista em 1
         self.tamanho += 1
 
-    
-    def imprimir(self):
-        #O ponteiro recebe o primeiro item da lista
+    #Reproduzir
+    def __repr__(self):
+        reproducao = ""
         ponteiro = self.inicio
         while(ponteiro):
-            print(ponteiro.dado, "\n")
-            #Ponteiro "anda" para o próximo elemento
+            reproducao = reproducao + str(ponteiro.dado) + " -> "
             ponteiro = ponteiro.proximo
+        return reproducao
 
-    def excluir(self, valor):
-        if self.tamanho == 0:
-            print("A lista está vazia")
-        elif  self.tamanho == 1:
-            if self.inicio.dado == valor:
-                self.inicio == None  
-                self.tamanho -= 1
-            else:
-                print("Valor não encontrado")
+    def __str__(self):
+        return self.__repr__()
+
+    #método para remover elemento da lista
+    def excluir(self, elemento):
+        #Se a lista está vazia
+        if self.inicio == None:
+            raise ValueError(f"O elemento {elemento} não está na lista")
+
+        #Se o elemento for o primeiro da lista
+        elif self.inicio.dado == elemento:
+            #O inicio se tornará o próximo elemento
+            self.inicio = self.inicio.proximo
+            self.tamanho -= 1
+            return True
         else:
-            if self.inicio.dado == valor:
-               self.inicio = self.inicio.proximo
-               self.tamanho -= 1
-            else:
-                ant = self.inicio
-                aux = ant.proximo
-                while(aux):
-                    if aux.dado == valor:
-                        ant.proximo = aux.proximo
-                    
-                    ant = aux
-                    aux = aux.proximo
-                
-                self.tamanho -= 1
+            anterior = self.inicio
+            ponteiro = self.inicio.proximo
+            while(ponteiro):
+                #se encontrou o elemento
+                if ponteiro.dado == elemento:
+                    #Ajuste do encadeamento, liga o anterior ao sucessor do nó que se quer remover
+                    anterior.proximo = ponteiro.proximo 
+                    #para sair do laço
+                    ponteiro.proximo = None
+
+                #Se não encontrou o elemento
+                #o ponteiro está sempre uma posição a frente do "anterior"
+                anterior = ponteiro
+                ponteiro = ponteiro.proximo
+            self.tamanho -= 1
+            return True
+        raise ValueError(f"O elemento {elemento} não está na lista")
+
+
 
     
 

@@ -19,12 +19,14 @@ class Lista:
         self.tamanho = self.tamanho +1
     
     def getNo(self, index):
+    #Retorna o ponteiro do index requerido
         ponteiro = self.inicio
         for item in range(index):
             if ponteiro:
                 ponteiro = ponteiro.proximo
             else:
                 raise IndexError("Index fora do intervalo da Lista")
+
         return ponteiro
 
     def __getitem__(self, index):
@@ -50,14 +52,49 @@ class Lista:
             posicao += 1
         raise ValueError(f"O elemento {elemento} não está na lista")
 
-    def indexInsercao(self, elemento):
-        ponteiro = self.inicio
+    def indexInsercaoOrdem(self, elemento):
+        no = No(elemento)
         posicao = 0
-        while(ponteiro):
-            if elemento < ponteiro.dado:
-                return posicao
-            ponteiro = ponteiro.proximo
-            posicao += 1
+        ponteiro = self.inicio
+        try:
+            prox = ponteiro.proximo
+        except:
+            prox = None
+
+        #se a lista estiver vazia
+        if self.inicio == None:
+            self.inicio = no
+            self.tamanho += 1
+            return True
+
+        #se o o dado for menor de todos, primeiro da lista
+        if elemento < ponteiro.dado:
+            no.proximo = self.inicio
+            self.inicio = no
+            self.tamanho += 1
+            return True
+
+        else:
+            while True:
+                
+                #se for o último da lista
+                if prox == None:
+                    ponteiro.proximo = no
+                    self.tamanho +=1
+                    return True
+
+                if elemento <= prox.dado:
+                    ponteiro.proximo = no
+                    no.proximo = prox
+                    self.tamanho +=1
+                    return True
+
+                if elemento > prox.dado:
+                    ponteiro = prox
+                    prox = prox.proximo
+                    posicao += 1
+                
+
 
     def inserir(self, index, Novoelemento):
         no = No(Novoelemento)

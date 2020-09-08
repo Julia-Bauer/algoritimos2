@@ -13,4 +13,8 @@ lista.adicionar(13)
 lista.adicionar(4)
 lista.adicionar(8)
 
-print(lista)
+#Printar na ordem normal (false indica que não é inverso)
+print(lista.__repr__(False))
+
+#Printar na ordem inversa (true indica que é inverso)
+print(lista.__repr__(True))

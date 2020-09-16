@@ -1,18 +1,8 @@
-#First in first out
-#Estrutura de dados linear
-#Inserções são realizadas no final da fila
-#Exclusões são realizadas no inicio da fila
-#Estrutura que armazena na sequência em que os elementos chega,
-#Permite alocação dinâmica de memória
-#É constituida por elementos que possuem uma estrutura composta por valor e endereço do proxomo elemento
-#Se estivermos no último elemento da fila, o campo para o proximo tera como valor NULL
-
 from no import No
 
-class Fila:
+class Pilha:
     
     def __init__(self):
-        self.inicio = None
         self.fim = None
         self.tamanho = 0
     
@@ -20,10 +10,9 @@ class Fila:
         no = No(dado)
 
         if self.tamanho == 0:
-            self.inicio = no
             self.fim = no
         else:
-            self.fim.proximo = no
+            no.anterior = self.fim
             self.fim = no
 
         self.tamanho +=1
@@ -31,26 +20,25 @@ class Fila:
     def imprimir(self):
         texto = ""
         if self.tamanho == 0:
-            texto = "Fila Vazia"
+            texto = "Pilha Vazia"
         else:
-            ponteiro = self.inicio
+            ponteiro = self.fim
             while(ponteiro):
                 texto = texto + str(ponteiro.dado) + " - "
-                ponteiro = ponteiro.proximo
+                ponteiro = ponteiro.anterior
         print(texto)
     
     def remover(self):
 
         if self.tamanho == 0:
-            print("Fila Vazia")
+            print("Pilha Vazia")
 
         elif self.tamanho == 1:
-            self.inicio = None
             self.fim = None
             self.tamanho -= 1
         
         else:
-            self.inicio = self.inicio.proximo
+            self.fim = self.fim.anterior
             self.tamanho -= 1
 
 

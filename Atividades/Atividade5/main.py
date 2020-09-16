@@ -1,6 +1,6 @@
-from fila_fifo import Fila
+from pilha import Pilha
 
-fila = Fila()
+pilha = Pilha()
 opcao = ""
 
 while(opcao != "0"):
@@ -14,8 +14,8 @@ while(opcao != "0"):
 
     if opcao == "1":
         dado = input("Informe um Valor:")
-        fila.adicionar(dado)
+        pilha.adicionar(dado)
     if opcao == "2":
-        fila.remover()
+        pilha.remover()
     if opcao == "3":
-        fila.imprimir()
+        pilha.imprimir()

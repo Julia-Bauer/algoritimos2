@@ -1,4 +1,4 @@
-carros = ("Uno", "Doblo", "Toro")
+carros = ("Uno", "Doblo", "Toro", "Hylux", "Ferrari")
 print(carros[1])
 print("-------------------------------")
 

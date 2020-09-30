@@ -96,6 +96,8 @@
 
 #OBJETO = DADOS + OPERAÇÕES
 
+#Um objeto é um exemplar de uma classe. Só existe em tempo de execução. É chamado de instância de classe.
+
 #------CARACTERISTICAS-----
 #Características: dados representam características
     #São chamados atributos
@@ -127,7 +129,48 @@
 #Os valores dos DADOS são modificados a partir das OPERAÇÕES sobre estes dados 
 
 #--------------------------GET-SET------------------------
+
 #propcia criar verificações quando necessárias. exemplo: verificar se uma idade é positiva
 
 #GET - Pega uma informação
 #SET - Define uma informação
+
+#--------------------------ATRIBUTO-----------------------
+
+#Características dos objetos de uma classe, também são conhecidos como variáveis ou campos
+
+#Essas propriedades definem o estado de um objeto, fazendo com que esses valores possam sofrer alterações
+
+#--------------------------MÉTODO-------------------------
+
+#São ações ou procedimentos, onde podem interagir e se comunicarem com outros objetos. A execução dessas ações se dá através de mensagens, tendo como função o envio de uma solicitação ao objeto para que seja efetuada a rotina desejada.
+
+#Como boas práticas, é indicado sempre usar o nome dos métodos declarados como verbos, para que quando for efetuada alguma manutenção seja de fácil entendimento. Veja algumas nomenclaturas de nomes de métodos: acaoVoltar, voltar, avançar, correr, resgatarValor, pesquisarNomes
+
+
+#-------------------------RESUMO------------------------
+
+#Objeto
+    #Qualquer entidade que possui características e comportamento
+#Classe
+    #Descreve um tipo de objeto
+    #Define atributos e métodos
+#Atributo
+    #Define características do objeto
+#Método
+    #Operações que o objeto pode realizar 
+
+#----------------------OO-EM-PYTHON---------------------
+
+#Quase tudo em Python é um objeto, com as suas propriedades e métodos.
+
+#Uma classe é como um construtor de objeto, ou um "modelo" para criar objetos
+
+#-----METODO-CONSTRUTOR-DE-CLASSE-----
+#Todas as classes têm uma função chamada __init__ (), que é sempre executada quando a classe está sendo inicializada.
+
+#Use o __init__ () para atribuir valores a propriedades do objeto, ou outras operações que são necessárias para fazer quando o objeto está sendo instanciado.
+
+#-----------------------------------------------------------
+
+#*NOME DO MÉTODO COMO VERBO - BOA PRATICA - imprimir, cadastrar, etc...

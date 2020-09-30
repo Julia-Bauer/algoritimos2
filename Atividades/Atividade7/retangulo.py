@@ -22,4 +22,11 @@ class Retangulo:
     def imprimir_valores(self):
         print(f'Este objeto, instância da classe retângulo, mede {self.altura}cm de altura e {self.largura}cm de largura')
 
+    def imprimir_area(self):
+        area = self.calgular_area()
+        print(f'Este objeto, instância da classe retângulo, tem uma área de {area}cm quadrados.')
+
+
+
+
 

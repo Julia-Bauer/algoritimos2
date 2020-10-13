@@ -1,0 +1,79 @@
+Heraça
+
+*Um pilar da orientação a objetos
+
+▷ Herança nos permite definir uma classe que herda todos os
+atributos e métodos de outra classe.
+
+▷ Classe pai (Super Class) é a classe que está sendo herdada
+também chamada de classe base ou classe genérica.
+
+▷ Classe filha (Sub Class) é a classe que herda de outra classe, também chamada de classe derivada ou classe especializada.
+
+▷ A herança é um princípio da POO que permite a criação de novas classes a partir de outras previamente criadas.
+
+▷ Essas novas classes são chamadas de subclasses, ou classes derivadas; e as classes já existentes, que deram origem às subclasses, são chamadas de superclasses, ou classes base.
+
+▷ Uma subclasse herda métodos e atributos de sua superclasse; apesar disso, pode escrevê-los novamente para uma forma mais específica de representar o comportamento do método herdado. 
+
+▷SUPERCLASSE e SUBCLASSE
+
+*na maioria das linguagens, uma subclasse não pode herdar de mais de uma superclasse. No Python é possível.
+
+#---------------CLASSE----------------
+#-------------------------------------
+#-           Nome da Classe          -
+#-       + atributoPublico: tipo     -acessivel no projeto
+#-       #atributoProtegido: tipo    -acessivel no pacote
+#-       -atributoPrivado: tipo      -acessivel na sua classe
+#-------------------------------------
+#- + operacao(argumento):tipoRetorno -
+#-------------------------------------
+
+----------------------------------------------------------
+
+EXEMPLO: ALUNOS  E PROFESSORES TEM COMO SUPERCLASSE PESSOA
+
+▷ Analisando professores e alunos, vemos que todos podem (devem) ter nome, endereço, telefone e cpf; portanto, nada mais justo que criar subclasses de Pessoa para representalos.
+
+▷ Porém, existem algumas características que os alunos tem que um professor não tem: nota, por exemplo.
+
+▷ Também existem características que os professores tem que os
+alunos não tem: departamento, salário, etc.
+
+▷ Para resolver esse problema, e deixar a aplicação MUITO MAIS
+ORGANIZADA, vamos fazer duas classes: “Aluno" e “Professor".
+
+▷ Cada uma dessas irá herdar a classe “Pessoa", pois também são um tipo de pessoa.
+
+▷ Dizemos que “Pessoa" é a superclasse, “Aluno" e “Professor" são subclasses.
+
+-----------------------------------------------------------
+EXEMPLO:
+
+class Pessoa:
+    def __init__ (self, codigo, nome, end, fone):
+        self.codigo = codigo
+        self.nome = nome
+        self.endereco = endereco
+        self.fone = fone
+    
+    def imprimir(self):
+        print("Nome:", self.nome)
+        print("End:", self.endereco)
+
+class Fisica(Pessoa):
+    def __init__(self, codigo, nome, end, fone, cpf):
+        Pessoa.__init__(self, codigo, nome, end, fone)
+        self.cpf = cpf
+
+-----------------------------------------------------------
+
+Classe (recapitulando...)
+
+▷ Uma classe é um molde para objetos.
+
+▷ Um objeto é uma instância de uma classe.
+
+▷ Uma classe possui atributos (características) e métodos
+(funções/ações)
